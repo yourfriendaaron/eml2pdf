@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.github.yourfriendaaron.eml2pdf</string>
+
+    <!-- launchd does not expand ~ or $HOME, so these paths must be absolute.
+         Replace YOUR_USERNAME with your macOS short username before installing.
+
+         Run the binary INSIDE the .app bundle so macOS attributes the
+         Downloads-folder permission to the app
+         (com.github.yourfriendaaron.eml2pdf), not to the shared system Python
+         interpreter. -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/YOUR_USERNAME/Library/Application Support/eml2pdf/eml2pdf.app/Contents/MacOS/eml2pdf</string>
+        <string>--watch-dir</string>
+        <string>/Users/YOUR_USERNAME/Downloads</string>
+        <string>/Users/YOUR_USERNAME/Email-PDFs</string>
+    </array>
+
+    <!-- Re-run whenever either watched folder changes -->
+    <key>WatchPaths</key>
+    <array>
+        <string>/Users/YOUR_USERNAME/Downloads</string>
+        <string>/Users/YOUR_USERNAME/Email-PDFs</string>
+    </array>
+
+    <key>ThrottleInterval</key>
+    <integer>2</integer>
+
+    <key>StandardOutPath</key>
+    <string>/Users/YOUR_USERNAME/Library/Logs/eml2pdf.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/YOUR_USERNAME/Library/Logs/eml2pdf.err.log</string>
+</dict>
+</plist>

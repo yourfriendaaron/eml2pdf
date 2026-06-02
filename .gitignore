@@ -1,0 +1,11 @@
+# PyInstaller build artifacts (regenerable; see README "Rebuilding the app")
+dist/
+build/
+*.spec
+
+# Python
+__pycache__/
+*.py[cod]
+
+# macOS
+.DS_Store
